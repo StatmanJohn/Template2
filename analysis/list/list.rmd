@@ -1,0 +1,17 @@
+---
+title: 'List 1: Demographic Information'
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r table, echo=TRUE}
+## Workにあるデータはどうやってつかうのか?
+source("../data/analysis_data/read_csv.R")
+source("../data/analysis_data/MergeData.R")
+knitr::kable(demog)
+```
