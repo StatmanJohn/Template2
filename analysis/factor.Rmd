@@ -1,0 +1,69 @@
+---
+title: "Factor analysis"
+output:
+  html_notebook: default
+  html_document: default
+  word_document: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+**因子分析とは**
+
+たくさんの変数があるときに，共通の因子にまとめて説明することを目的としている．要加筆．
+
+**データの簡単な説明**
+
+GROUP: 群A,B,C,D
+
+TIME: 時間1,2,3, ...
+
+VAR1: 0,1 変数
+
+VAR2, VAR3, VAR4, VAR5：数値変数
+
+VARはTIMEによって変動
+
+その他, AGE, WEIGHT, HEIGHT, GENDERあり.
+
+
+```{r}
+head(merge_data)
+
+```
+
+VAR1，GENDERは2値であり本来は因子分析には適さない．また本データはTIMEであらわされる時間で繰り返し測定データであるので，因子分析に適さない．
+
+が，例としてVar1, GENDER, TIMEをのぞいて主成分をやってみる．
+
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+.temp = na.omit(subset(merge_data, select=c("VAR2","VAR3","VAR4","VAR5","AGE","HEIGHT","WEIGHT")))
+
+```
+```{r}
+example.fac=factanal(.temp, factors=2, rotation="varimax", scores="regression")
+# Rotation=Varimax method, # of factors=2
+
+example.fac
+
+```
+
+ここでよく見るのは，最後のCumulative Proportion. 
+この場合，まったくデータをまとめきれていないことがわかります．
+
+
+```{r}
+barplot(example.fac$loadings[,1],  col="lightblue")
+barplot(example.fac$loadings[,2],  col="lightgreen")
+
+```
+
+
+ここで，Factor1とFactor2で上手くヒストグラムがずれると解釈しやすい．．．
+
+
+```{r}
+biplot(example.fac$scores, example.fac$loadings, col=c("0","2"))
+
+```
+

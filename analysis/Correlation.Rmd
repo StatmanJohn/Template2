@@ -1,0 +1,48 @@
+---
+title: "Correlation"
+output:
+  html_document: default
+  html_notebook: default
+  word_document: default
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+
+**データの簡単な説明**
+
+GROUP: 群A,B,C,D
+
+TIME: 時間1,2,3, ...
+
+VAR1: 0,1 変数
+
+VAR2, VAR3, VAR4, VAR5：数値変数
+
+VARはTIMEによって変動
+
+その他, AGE, WEIGHT, HEIGHT, GENDERあり.
+
+
+```{r}
+head(merge_data)
+```
+
+VAR1，GENDERは2値でまた本データはTIMEであらわされる時間で繰り返し測定データであるので，色々問題も多いが例としてGENDER, TIMEをのぞいて相関係数を求める．なお，欠測があるので，費用可能なものをすべて使う指定をしている．
+
+```{r}
+cor.mat <- round(cor(merge_data[4:11], use="pairwise.complete.obs", method="spearman"),2)
+cor.mat
+```
+
+```{r}
+library("corrplot")
+corrplot(cor.mat, type="upper", order="hclust", tl.col="black", tl.srt=45)
+```
+
+
+相関があまりない．
+
+
+
+
