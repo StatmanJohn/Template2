@@ -18,8 +18,8 @@
 
     1 RStudioを起動し，Tools - Grobal Option - Git/SVN を選択．
     
-    2 以下を確認．  
-        
+    2 以下を確認．
+    
         Enable version control interface for RStudio projectsにチェック．
 
         Git executable:にgitの実行ファイルが指定されていることの確認．
@@ -33,17 +33,17 @@
     1 RStudioで作成したRSAキーをコピーする．
     
     2 https://github.com/ の自分のプロファイルページにいく．
-    
+    
     3 右上のアイコンよりSettingを選択．
-    
+    
     4 SSH and GPG keysを選択．
-    
+    
     5 New SSH Keyをクリック．
-    
+    
     6 titleは何でもよい．(例えば，RStudio)
-    
+    
     7 Keyのところに，ペースト．
-    
+    
     8 最後にAdd SSH Keyをクリック．
 
 - RStudioの再起動．
