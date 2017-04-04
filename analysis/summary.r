@@ -1,6 +1,9 @@
 library(reshape2)
 library(doBy)
 
+# Add comment 1
+# Add comment 2
+
 # 数値変数の要約統計量
 demog.long=melt(demog, id.vars=c("ID", "GROUP", "GENDER"), variable.name="parameter", na.rm=TRUE)
 num.sum.demog=summaryBy(value ~ parameter + GROUP, data=demog.long, FUN=list( length, mean, sd, max, median, min ) )
