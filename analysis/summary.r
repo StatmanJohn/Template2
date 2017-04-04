@@ -3,6 +3,8 @@ library(doBy)
 
 # Add comment 1
 # Add comment 2
+# Delete comment 1
+# Delete comment 2
 
 # 数値変数の要約統計量
 demog.long=melt(demog, id.vars=c("ID", "GROUP", "GENDER"), variable.name="parameter", na.rm=TRUE)
