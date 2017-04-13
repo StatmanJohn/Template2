@@ -83,6 +83,8 @@ Coggle資料より <https://coggle.it/diagram/WKUjyqr8lAABQgMr>.
     **業務の大半を力作業，専門的知識がなくともできる作業がしめることを認識．**
 
 
+
+
 ***本日はここの提案です．***
 
 
